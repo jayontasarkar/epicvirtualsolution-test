@@ -10,7 +10,7 @@ Follow the steps:
 
 ```
 # For cloning repo from github
-git clone
+git clone https://github.com/jayontasarkar/epicvirtualsolution-test.git
 
 # Go to project folder root
 cd epicvirtualsolution-test
@@ -31,7 +31,7 @@ REACT_APP_PROJECT_NAME="Epic Virtual Solution"
 REACT_APP_BASE_API_URL="https://epicvirtualsolution.com/linkskill/api"
 ```
 
-## Available Scripts
+## Run The Project
 
 In the project directory, you can run:
 
