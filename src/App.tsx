@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MainLayout from './layouts/MainLayout';
+import AppRoutes from './components/AppRoutes';
+import Alert from './components/ui/Alert';
+import useMenuWithProduct from './hooks/useMenuWithProduct';
+import ScreenLoader from './components/loaders/ScreenLoader';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+const App = () => {
+  const { isLoading, isError } = useMenuWithProduct();
+
+  if (isLoading) {
+    return <ScreenLoader />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MainLayout>
+        {isError && (
+          <div className="container mt-3">
+            <div className="row">
+              <div className="col-md-12">
+                <Alert type="danger">Failed to fetch menu & mobile list</Alert>
+              </div>
+            </div>
+          </div>
+        )}
+        <AppRoutes />
+      </MainLayout>
+      <ToastContainer position="bottom-right" />
+    </>
   );
-}
+};
 
 export default App;
