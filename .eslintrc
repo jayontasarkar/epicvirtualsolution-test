@@ -9,6 +9,5 @@
         "aspects": ["noHref", "invalidHref", "preferButton"]
       }
     ]
-  },
-  "extends": ["@salesforce/eslint-config-lwc/recommended"]
+  }
 }
